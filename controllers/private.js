@@ -4,3 +4,5 @@ exports.getPrivateData = (req,res,next) =>{
         data: "You got access to the private data in this route",
     });
 };
+
+//test
