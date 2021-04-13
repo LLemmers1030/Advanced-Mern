@@ -7,8 +7,10 @@
     "node": "14.x"
   },
   "scripts": {
+
     "start": "node server.js",
     "server": "nodemon server.js",
+    "heroku-prebuild": "npm i -f",
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "keywords": [],
