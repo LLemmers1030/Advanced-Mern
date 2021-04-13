@@ -8,15 +8,6 @@ const errorHandler = require('./middleware/error');
 // Connect DB
 connectDB();
 
-// Middleware
-app.use(express.json());
-app.use('/api/auth', require('./routes/auth'));
-app.use('/api/private', require('./routes/private'));
-
-// Error Handler (SHould be last piece of middleware)
-app.use(errorHandler);
-
-// For herkoku deployment
 if (process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname,'/client/build')))
 
@@ -28,6 +19,16 @@ if (process.env.NODE_ENV === "production"){
         res.send("Api running");
     });
 }
+// Middleware
+app.use(express.json());
+app.use('/api/auth', require('./routes/auth'));
+app.use('/api/private', require('./routes/private'));
+
+// Error Handler (SHould be last piece of middleware)
+app.use(errorHandler);
+
+// For herkoku deployment
+
 // PORT for HEROKU or Localhost
 const PORT = process.env.PORT || 8080;
 
