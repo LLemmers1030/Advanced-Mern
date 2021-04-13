@@ -1,4 +1,5 @@
 require('dotenv').config({path: "./config.env"});
+const path = require('path');
 const express = require('express');
 const app = express();
 const connectDB = require('./config/db');
@@ -15,6 +16,18 @@ app.use('/api/private', require('./routes/private'));
 // Error Handler (SHould be last piece of middleware)
 app.use(errorHandler);
 
+// For herkoku deployment
+if (process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname,'/client/build')))
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.join(__dirname, 'client', 'build', 'index.html'));
+    });
+} else{
+    app.get('/', (req,res) => {
+        res.send("Api running");
+    });
+}
 // PORT for HEROKU or Localhost
 const PORT = process.env.PORT || 8080;
 
