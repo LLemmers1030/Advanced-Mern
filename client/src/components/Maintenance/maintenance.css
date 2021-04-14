@@ -1,0 +1,48 @@
+main {
+    background: #f3f4f6;
+    grid-area: main;
+    overflow-y: auto;
+  }
+  
+  .main__container {
+    padding: 20px 35px;
+    align-items: center;
+    /* height: 100vh; */
+  }
+  
+  .main__title {
+    display: flex;
+    align-items: center;
+    /* height: 100vh; */
+  }
+  
+  .main__title > img {
+    max-height: 100px;
+    object-fit: contain;
+    margin-right: 20px;
+    align-items: center;
+  }
+  
+  .main__greeting > h1 {
+    font-size: 24px;
+    color: #2e4a66;
+    margin-bottom: 5px;
+    align-items: center;
+    /* height: 100vh; */
+  }
+  
+  .main__greeting > p {
+    font-size: 14px;
+    font-weight: 700;
+    color: #a5aaad;
+  }
+
+  .google-form{
+    flex: 1;
+    height: 120vh;
+    width: 50vw;
+    border: none;
+    align-items: center;
+    overflow-y: hidden;
+    margin-left: 200px;
+  }

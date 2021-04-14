@@ -1,0 +1,77 @@
+.googleMap {
+  max-height: 100vh;
+  max-width: 50vw;
+  margin: auto;
+  /* border-style: groove; */
+  align-items: center;
+
+  /* position: fixed; */
+}
+
+/* This was trying to center things near the middle of the page */
+.container-1 {
+  display: flex;
+  height: 100vh;
+  background-color: #3a506b;
+  position: relative;
+}
+
+.col-1 {
+  flex: 1;
+  /* border-style: groove; */
+  align-items: center;
+  height: 100vh;
+  overflow-x: hidden;
+  /* overflow-y: scroll; */
+}
+
+.col-2 {
+  flex: 1;
+  /* border-style: groove; */
+  align-items: center;
+  /* height: 100vh; */
+}
+
+.house {
+  max-width: 100%;
+  height: auto;
+  max-height: 100%;
+  /* width: 50%; */
+}
+
+.listings-header {
+  font-size: 32px;
+  text-align: center;
+  color: white;
+  padding-left: 25px;
+  /* background-color: #3a506b; */
+}
+
+.odd {
+  background-color: #1c2541;
+  text-align: center;
+}
+
+.even {
+  background-color: #3a506b;
+  text-align: center;
+}
+
+.ant-collapse-header {
+  color: white !important;
+  font-size: 18px;
+}
+
+.panel-paragraph {
+  font-size: 17px;
+}
+
+.house-description{
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 25px;
+}
+
+/* .collapse-main {
+  max-height: 100vh;
+} */

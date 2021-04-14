@@ -2,7 +2,8 @@
 import {useState, useEffect} from 'react';
 import axios from 'axios';
 import {Link} from 'react-router-dom';
-import "./LoginScreen.css";
+//import "./LoginScreen.css";
+import "./Signin.css";
 
 const LoginScreen =({history}) =>{
 
@@ -12,7 +13,7 @@ const LoginScreen =({history}) =>{
 
     useEffect(() => {
         if (localStorage.getItem("authToken")){
-            history.push("/");
+            history.push("/dashboard");
         }
     }, [history]);
 
@@ -31,7 +32,7 @@ const LoginScreen =({history}) =>{
             config);
 
             localStorage.setItem("authToken", data.token);
-            history.push("/");
+            history.push("/dashboard");
         } catch (error) {
             setError(error.response.data.error);
             setTimeout(() => {
@@ -40,47 +41,53 @@ const LoginScreen =({history}) =>{
         }
     };
 
-
     return(
-    <div className="login-screen">
-        <form onSubmit={LoginHandler} className="login-screen__form">
-            <h3 className="login-screen__title">Login</h3>
-            {error && <span className="error-message">{error}</span>}
-
-            <div className="form-group">
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    required id="email"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    tabIndex={1}
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="password">Password:
-                <Link to="/forgotpassword" className="login-screen__forgotpassword" tabIndex={4}>Forgot Password?</Link>
-                </label>
-                <input
-                    type="text"
-                    required id="name"
-                    placeholder="Enter password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    tabIndex={2}
-                />
-            </div>
-
-        <button type= "submit" className="btn btn-primary" tabIndex={3}>Login</button>
         
-        <span className="login-screen__subtext">
-            Do not have an account? <Link to="/register">Register</Link></span>
-        </form>
-
-    </div>
-    );
+        <div className="container">
+              <div className="forms-container">
+                <div className="signin-signup">
+            <form onSubmit={LoginHandler} className="sign-in-form">
+                <h2 className="title">Sign in</h2>
+                {error && <span className="error-message">{error}</span>}
+    
+                <div className="input-field">
+                    <i className="fas fa-user"/>
+                    
+                    <input
+                        type="email"
+                        required id="email"
+                        placeholder="Enter email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        tabIndex={1}
+                    />
+                </div>
+    
+                <div className="input-field">
+                    <i className="fas fa-lock"/>
+                   
+                    <input
+                        type="text"
+                        required id="name"
+                        placeholder="Enter password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        tabIndex={2}
+                    />
+                </div>
+    
+            <button type= "submit" className="btn btn-primary" tabIndex={3}>Login</button>
+            <p className="social-text">Sign in with other platforms</p>
+                    <div className="social-media">
+                      
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        );
 }
 
 export default LoginScreen;
+
+

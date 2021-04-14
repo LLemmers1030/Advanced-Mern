@@ -16,7 +16,7 @@ app.use('/api/private', require('./routes/private'));
 // Error Handler (SHould be last piece of middleware)
 app.use(errorHandler);
 
-// For herkoku deployment
+// For heroku deployment
 if (process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname,'/client/build')))
 

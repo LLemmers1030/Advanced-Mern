@@ -18,6 +18,8 @@ const RegisterScreen =({history}) =>{
         }
     }, [history])
 
+    
+
     const registerHandler = async (e) => {
         e.preventDefault();
 
@@ -41,6 +43,7 @@ const RegisterScreen =({history}) =>{
             config);
 
             localStorage.setItem("authToken", data.token);
+            // push to login page ?
             history.push("/");
         } catch (error) {
             setError(error.response.data.error);
@@ -52,61 +55,73 @@ const RegisterScreen =({history}) =>{
 
 
     return(
-    <div className="register-screen">
-        <form onSubmit={registerHandler} className="register-screen__form">
-            <h3 className="register-screen__title">Register</h3>
-            {error && <span className="error-message">{error}</span>}
-            <div className="form-group">
-                <label htmlFor="name">Usernmae:</label>
-                <input
-                    type="text"
-                    required id="name"
-                    placeholder="Enter username"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    required id="email"
-                    placeholder="Enter email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="password">Password:</label>
-                <input
-                    type="text"
-                    required id="name"
-                    placeholder="Enter password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                />
-            </div>
-
-            <div className="form-group">
-                <label htmlFor="confirmpassword">ConfirmPassword:</label>
-                <input
-                    type="password"
-                    required id="confirmpassword"
-                    placeholder="Confirm password"
-                    value={confirmpassword}
-                    onChange={(e) => setConfirmPassword(e.target.value)}
-                />
-            </div>
-
-        <button type= "submit" className="btn btn-primary">Register</button>
+      
+        <div className="container">
+              <div className="forms-container">
+                <div className="signin-signup">
+            <form onSubmit={registerHandler} className="sign-in-form">
+                <h2 className="title">Sign Up</h2>
+                {error && <span className="error-message">{error}</span>}
         
-        <span className="register-screen__subtext">
-            Already have an account? <Link to="/login">Login</Link></span>
-        </form>
+                <div className="input-field">
+                    <i className="fas fa-user"/>
+                    <input
+                        type="text"
+                        required id="name"
+                        placeholder="Enter username"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                        
+                    />
+                </div>
 
-    </div>
+                <div className="input-field">
+                    <i className="fas fa-user"/>
+                    <input
+                        type="email"
+                        required id="email"
+                        placeholder="Enter email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                       
+                    />
+                </div>
+    
+                <div className="input-field">
+                    <i className="fas fa-lock"/>
+                   
+                    <input
+                        type="text"
+                        required id="name"
+                        placeholder="Enter password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        
+                    />
+                </div>
+
+                <div className="input-field">
+                    <i className="fas fa-lock"/>
+                   
+                    <input
+                        type="password"
+                        required id="confirmpassword"
+                        placeholder="Enter confirm password"
+                        value={confirmpassword}
+                        onChange={(e) => setConfirmPassword(e.target.value)}
+                        
+                    />
+                </div>
+    
+            <button type= "submit" className="btn btn-primary" >Register</button>
+            <p className="social-text">Sign up with other platforms</p>
+                    <div className="social-media">
+                      
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
     );
 }
 

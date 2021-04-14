@@ -1,6 +1,8 @@
 // @ts-nocheck
 import {useState, useEffect} from 'react';
 import axios from 'axios';
+import Navbar from "../NavbarD";
+import Sidebar from "../SidebarD";
 
 const PrivateScreen = ({history}) =>{
 
