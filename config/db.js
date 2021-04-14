@@ -6,9 +6,10 @@ const connectDB = async() => {
         useCreateIndex: true,
         useUnifiedTopology: true,
         useFindAndModify: true
-    });
+    }).then(() => console.log('Database Connected'))
+    .catch(err => console.log(err));
 
-    console.log("DB Connected");
+    //console.log("DB Connected");
 }
 
 module.exports = connectDB;
