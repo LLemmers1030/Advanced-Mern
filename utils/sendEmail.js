@@ -11,7 +11,7 @@ const sendEmail = (options) => {
     })
 
     const mailOptions = {
-        from: 'sonljzx@gmail',
+        from: 'sonljzx@gmail.com',
         to: options.to,
         subject: options.subject,
         html: options.text
