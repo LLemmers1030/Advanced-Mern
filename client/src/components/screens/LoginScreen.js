@@ -75,13 +75,12 @@ const LoginScreen =({history}) =>{
                         tabIndex={2}
                     />
                 </div>
-    
+            <Link to="/forgotpassword"><p>Forgot password?</p></Link>
             <button type= "submit" className="btn btn-primary" tabIndex={3}>Login</button>
             <p className="social-text">Sign in with other platforms</p>
-                    <div className="social-media">
-                      
-                    </div>
+            <Link to="/register"><p>Create Account?</p></Link>
                 </form>
+                
             </div>
         </div>
         </div>
